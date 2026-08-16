@@ -1,0 +1,29 @@
+package library.model;
+
+public class Book extends LibraryResource implements Printable {
+
+    public Book(int resourceId, String title, String author) {
+        super(resourceId, title, author);
+    }
+
+    @Override
+    public double calculateFine(int overdueDays) {
+
+        if (overdueDays < 0) {
+            return 0;
+        }
+
+        return overdueDays * 5.0;
+    }
+
+    @Override
+    public void printDetails() {
+
+        displayLibraryName();
+
+        System.out.println("Resource Type : Book");
+        System.out.println("Resource ID   : " + getResourceId());
+        System.out.println("Title         : " + getTitle());
+        System.out.println("Author        : " + getAuthor());
+    }
+}
